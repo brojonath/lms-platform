@@ -9,6 +9,7 @@
 ---
 
 ## Completed Versions
+- [x] Setup: Tailwind v4 design system ✓
 - [ ] v0.1 - Data types and mock data
 - [ ] v0.2 - Data access layer
 - [ ] v0.3 - First Svelte 5 component (CourseCard)
