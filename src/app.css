@@ -1,0 +1,251 @@
+/* src/app.css */
+
+/**
+ * ═══════════════════════════════════════════════════════════════
+ * LMS PLATFORM - DESIGN SYSTEM (Tailwind v4)
+ * ═══════════════════════════════════════════════════════════════
+ * 
+ * Tailwind v4 uses CSS-native configuration via @theme
+ * No tailwind.config.ts needed!
+ */
+
+/* ─────────────────────────────────────────────────────────────────
+   IMPORTS
+   ───────────────────────────────────────────────────────────────── */
+
+@import 'tailwindcss';
+
+/* ─────────────────────────────────────────────────────────────────
+   PLUGINS
+   ───────────────────────────────────────────────────────────────── */
+
+@plugin '@tailwindcss/typography';
+@plugin '@tailwindcss/forms';
+
+/* ─────────────────────────────────────────────────────────────────
+   THEME CONFIGURATION
+   This replaces tailwind.config.ts in v4
+   ───────────────────────────────────────────────────────────────── */
+
+@theme {
+  /* ═══════════════════════════════════════════════════════════════
+     COLORS
+     Usage: bg-bg, text-primary, border-border, etc.
+     ═══════════════════════════════════════════════════════════════ */
+
+  /* Backgrounds (dark theme) */
+  --color-bg: #0d1117;
+  --color-bg-2: #161b22;
+  --color-bg-3: #21262d;
+  --color-bg-hover: #30363d;
+
+  /* Text */
+  --color-text: #f0f6fc;
+  --color-text-secondary: #8b949e;
+  --color-muted: #484f58;
+
+  /* Brand */
+  --color-primary: #ffa657;
+  --color-secondary: #ff7edb;
+
+  /* Semantic */
+  --color-accent: #58a6ff;
+  --color-success: #238636;
+  --color-warning: #d29922;
+  --color-error: #f85149;
+  --color-info: #a5a3ff;
+
+  /* Borders */
+  --color-border: #30363d;
+  --color-border-strong: #484f58;
+
+  /* English Levels (EFL-specific) */
+  --color-level-a1: #22c55e;
+  --color-level-a2: #84cc16;
+  --color-level-b1: #eab308;
+  --color-level-b2: #f97316;
+  --color-level-c1: #ef4444;
+  --color-level-c2: #dc2626;
+
+  /* User Status */
+  --color-status-pending: #d29922;
+  --color-status-approved: #238636;
+  --color-status-rejected: #f85149;
+
+  /* ═══════════════════════════════════════════════════════════════
+     FONTS
+     Usage: font-sans, font-mono
+     ═══════════════════════════════════════════════════════════════ */
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* ═══════════════════════════════════════════════════════════════
+     BORDER RADIUS
+     Usage: rounded-sm, rounded, rounded-lg, rounded-xl
+     ═══════════════════════════════════════════════════════════════ */
+
+  --radius-sm: 0.5rem;
+  --radius: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  /* ═══════════════════════════════════════════════════════════════
+     SHADOWS
+     Usage: shadow-sm, shadow-md, shadow-lg, shadow-glow
+     ═══════════════════════════════════════════════════════════════ */
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.6);
+  --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.7);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.8);
+  --shadow-glow: 0 0 20px rgba(255, 166, 87, 0.25);
+  --shadow-glow-secondary: 0 0 20px rgba(255, 126, 219, 0.3);
+  --shadow-glow-blue: 0 0 20px rgba(88, 166, 255, 0.25);
+
+  /* ═══════════════════════════════════════════════════════════════
+     ANIMATIONS
+     Usage: animate-fade-in, animate-slide-up, animate-float
+     ═══════════════════════════════════════════════════════════════ */
+
+  --animate-fade-in: fade-in 0.3s ease-out;
+  --animate-slide-up: slide-up 0.4s ease-out;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-shimmer: shimmer 2s linear infinite;
+  --animate-pulse-soft: pulse-soft 2s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   KEYFRAMES (Must be outside @theme)
+   ───────────────────────────────────────────────────────────────── */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════════════════════════════ */
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLLBAR (Fireship style)
+   ═══════════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   UTILITY CLASSES
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Text Gradients */
+.text-gradient-primary {
+  background: linear-gradient(to right, var(--color-primary), #fb923c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-secondary {
+  background: linear-gradient(to right, var(--color-secondary), #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Focus Ring (Accessibility) */
+.focus-ring {
+  outline: none;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PROSE OVERRIDES (Typography plugin)
+   For course descriptions and lesson content
+   ═══════════════════════════════════════════════════════════════ */
+
+.prose {
+  --tw-prose-body: var(--color-text-secondary);
+  --tw-prose-headings: var(--color-text);
+  --tw-prose-links: var(--color-accent);
+  --tw-prose-code: var(--color-primary);
+  --tw-prose-pre-bg: var(--color-bg-2);
+  --tw-prose-bullets: var(--color-muted);
+  --tw-prose-counters: var(--color-muted);
+}
