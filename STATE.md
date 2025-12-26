@@ -1,64 +1,45 @@
 # LMS Platform - Development State
+# File Structure
+src/lib/
+├── types.ts                    ← Shared types (import anywhere)
+├── server/
+│   └── courses.ts              ← Server functions (server only)
+└── components/
+    └── CourseCard.svelte       ← Imports from types.ts ✓
 
-## Project Info
-- **Framework:** SvelteKit + Svelte 5
-- **Backend:** PocketBase (Phase 1+)
-- **Styling:** Tailwind CSS (Fireship-inspired)
-- **Started:** [Today's Date]
+src/routes/
+├── +page.svelte                ← Uses data from load
+├── +page.server.ts             ← Imports from server/courses.ts ✓
+└── courses/
+    ├── +page.svelte
+    └── +page.server.ts         ← Imports from server/courses.ts ✓
 
----
+## Vertical Slices Roadmap
 
-## Completed Versions
-- [x] Setup: Tailwind v4 design system ✓
-- [ ] v0.1 - Data types and mock data
-- [ ] v0.2 - Data access layer
-- [ ] v0.3 - First Svelte 5 component (CourseCard)
-- [ ] v0.4 - Layout and routing
-- [ ] v0.5 - Course listing page
-- [ ] v1.0 - PocketBase integration
-- [ ] v1.1 - Remote functions
-- [ ] v1.2 - Authentication
-- [ ] v2.0 - Video player
-- [ ] v3.0 - Shadowing feature
+### Phase A: Mock Data (UI Focus)
+- [x] Slice 1: Course listing ✓
+- [ ] Slice 2: Course detail + lessons
+- [ ] Slice 3: Video player
+- [ ] Slice 4: Shadowing player
 
----
+### Phase B: PocketBase Integration  
+- [ ] Slice 5: PocketBase setup + migrate data ← REAL DATA STARTS HERE
+- [ ] Slice 6: Auth (signup, login, magic link)
+- [ ] Slice 7: Invite codes
+- [ ] Slice 8: Progress tracking
+- [ ] Slice 9: Access control
 
-## Current File Structure
+### Phase C: Admin & Polish
+- [ ] Slice 10: Admin - user management
+- [ ] Slice 11: Admin - course management  
+- [ ] Slice 12: Light/dark theme
+- [ ] Slice 13: Mobile responsive polish
+- [ ] Slice 14: Deployment
 
-src/
-├── lib/
-│ └── (empty - starting v0.1)
-├── routes/
-│ └── +page.svelte
-├── app.css
-├── app.html
-└── app.d.ts
-
-
----
+## Current Slice
+Slice 2: Course detail page
 
 ## Key Decisions
-1. PocketBase-style IDs (15-char random strings)
-2. Shadowing transcript as JSON array with timing
-3. Images stored as filename only, URL via helper function
-4. Remote functions in `$lib/server/` (Phase 1+)
-
----
-
-## Design System
-- Dark theme (Fireship-inspired)
-- Primary: Orange (#ffa657)
-- Secondary: Pink (#ff7edb)
-- Font: Inter + JetBrains Mono
-
----
-
-## Next Session Prompt
-Copy this to start a new chat:
-I'm building an EFL LMS platform with SvelteKit + Svelte 5 + PocketBase.
-
-Current state: [copy relevant section]
-Current version: [e.g., "Starting v0.2"]
-Files to discuss: [list any specific files]
-
-Question/Goal: [what you want to accomplish]
+- Mock data first → PocketBase in Slice 5
+- Components receive data via props (data-source agnostic)
+- Remote functions for all data fetching (Slice 5+)
