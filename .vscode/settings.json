@@ -1,5 +1,18 @@
 {
-	"files.associations": {
-		"*.css": "tailwindcss"
-	}
+  "css.validate": false,
+  "scss.validate": false,
+  "less.validate": false,
+  "tailwindCSS.includeLanguages": {
+    "svelte": "html"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["class=\"([^\"]*)\"", "([a-zA-Z0-9\\-:]+)"],
+    ["class=\\{([^}]*)\\}", "([a-zA-Z0-9\\-:]+)"]
+  ]
 }
