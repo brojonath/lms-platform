@@ -19,7 +19,7 @@
    1. FONTS
    ═══════════════════════════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 /* ═══════════════════════════════════════════════════════════════
    2. TAILWIND SETUP
@@ -229,7 +229,6 @@
      TYPOGRAPHY
      ───────────────────────────────────────────────────────────── */
   --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
 
   --text-xs: 0.75rem;
   --text-xs--line-height: 1.5;
@@ -403,6 +402,18 @@
   .container {
     @apply mx-auto px-4 sm:px-6;
     max-width: 1200px;
+  }
+
+    /* ─────────────────────────────────────────────────────────────
+     DECORATIVE ELEMENTS (Fireship style)
+     ───────────────────────────────────────────────────────────── */
+  .divider-gradient {
+    @apply mx-auto w-24 h-1 my-12 rounded-full;
+    background: linear-gradient(to right, var(--border-default), var(--border-strong));
+  }
+  
+  :root.dark .divider-gradient {
+    background: linear-gradient(to right, var(--gray-600), var(--gray-500));
   }
 
   /* ─────────────────────────────────────────────────────────────

@@ -1,44 +1,13 @@
 <!-- src/routes/+page.svelte -->
 <script lang="ts">
   import CourseCard from '$lib/components/CourseCard.svelte';
+  import Header from '$lib/components/Header.svelte';
 
   let { data } = $props();
-
-  function toggleDarkMode() {
-  document.documentElement.classList.toggle('dark');
-}
-
 </script>
 
 <div class="min-h-screen">
-  
-  <!-- Header -->
-  <header class="glass sticky top-0 z-50">
-    <div class="container h-16 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-primary 
-                    flex items-center justify-center text-xl shadow-md">
-          <span class="text-foreground-inverted">📚</span>
-        </div>
-        <span class="text-xl font-bold text-foreground hidden sm:block">
-          LMS<span class="text-primary">Platform</span>
-        </span>
-      </a>
-      
-      <nav class="flex items-center gap-1">
-        <a href="/courses" class="btn btn-ghost">
-          Courses
-        </a>
-        <button class="btn btn-primary btn-sm ml-2">
-          Get Started
-        </button>
-      </nav>
-    </div>
-    <button onclick={toggleDarkMode} class="btn btn-ghost btn-sm">
-    🌓
-    </button>
-
-  </header>
+  <Header />
 
   <main>
     <!-- Hero -->
@@ -120,5 +89,4 @@
       © 2024 LMS Platform. Built with ❤️ and Svelte.
     </div>
   </footer>
-  
 </div>
